@@ -1,0 +1,29 @@
+export default function AppShell({ user, onLogout, children }) {
+  const studentLinks = ["Dashboard", "Catalog", "My loans"];
+  const librarianLinks = ["Dashboard", "Books", "Members", "Borrow requests"];
+  const links = user.role === "librarian" ? librarianLinks : studentLinks;
+
+  return (
+    <div className="app-shell">
+      <header className="topbar">
+        <div>
+          <p className="eyebrow">Library Management System</p>
+          <h1>{user.role === "librarian" ? "Librarian workspace" : "Student workspace"}</h1>
+        </div>
+        <button type="button" onClick={onLogout}>
+          Log out
+        </button>
+      </header>
+      <div className="workspace">
+        <nav aria-label={`${user.role} navigation`}>
+          {links.map((link) => (
+            <a href="#dashboard" key={link}>
+              {link}
+            </a>
+          ))}
+        </nav>
+        <main>{children}</main>
+      </div>
+    </div>
+  );
+}
