@@ -96,43 +96,43 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Pending | Pending |
-| AUTH-02 | Pending | Pending |
-| AUTH-03 | Pending | Pending |
-| AUTH-04 | Pending | Pending |
-| AUTH-05 | Pending | Pending |
-| CAT-01 | Pending | Pending |
-| CAT-02 | Pending | Pending |
-| CAT-03 | Pending | Pending |
-| CAT-04 | Pending | Pending |
-| CAT-05 | Pending | Pending |
-| CAT-06 | Pending | Pending |
-| MEM-01 | Pending | Pending |
-| MEM-02 | Pending | Pending |
-| MEM-03 | Pending | Pending |
-| MEM-04 | Pending | Pending |
-| BOR-01 | Pending | Pending |
-| BOR-02 | Pending | Pending |
-| BOR-03 | Pending | Pending |
-| BOR-04 | Pending | Pending |
-| BOR-05 | Pending | Pending |
-| BOR-06 | Pending | Pending |
-| LOAN-01 | Pending | Pending |
-| LOAN-02 | Pending | Pending |
-| LOAN-03 | Pending | Pending |
-| LOAN-04 | Pending | Pending |
-| LOAN-05 | Pending | Pending |
-| LOAN-06 | Pending | Pending |
-| DEMO-01 | Pending | Pending |
-| DEMO-02 | Pending | Pending |
-| DEMO-03 | Pending | Pending |
-| DEMO-04 | Pending | Pending |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| AUTH-05 | Phase 1 | Pending |
+| CAT-01 | Phase 2 | Pending |
+| CAT-02 | Phase 2 | Pending |
+| CAT-03 | Phase 2 | Pending |
+| CAT-04 | Phase 2 | Pending |
+| CAT-05 | Phase 2 | Pending |
+| CAT-06 | Phase 2 | Pending |
+| MEM-01 | Phase 3 | Pending |
+| MEM-02 | Phase 3 | Pending |
+| MEM-03 | Phase 3 | Pending |
+| MEM-04 | Phase 3 | Pending |
+| BOR-01 | Phase 3 | Pending |
+| BOR-02 | Phase 3 | Pending |
+| BOR-03 | Phase 3 | Pending |
+| BOR-04 | Phase 3 | Pending |
+| BOR-05 | Phase 3 | Pending |
+| BOR-06 | Phase 3 | Pending |
+| LOAN-01 | Phase 4 | Pending |
+| LOAN-02 | Phase 4 | Pending |
+| LOAN-03 | Phase 4 | Pending |
+| LOAN-04 | Phase 4 | Pending |
+| LOAN-05 | Phase 4 | Pending |
+| LOAN-06 | Phase 4 | Pending |
+| DEMO-01 | Phase 4 | Pending |
+| DEMO-02 | Phase 1 | Pending |
+| DEMO-03 | Phase 1 | Pending |
+| DEMO-04 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 31 total
-- Mapped to phases: 0
-- Unmapped: 31
+- Mapped to phases: 31
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-09*
-*Last updated: 2026-06-09 after initial definition*
+*Last updated: 2026-06-09 after roadmap creation*
