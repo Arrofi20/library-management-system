@@ -1,0 +1,202 @@
+{
+    "phase":  "1",
+    "phase_name":  "Application Foundation and Role Login",
+    "timestamp":  "2026-06-09T00:00:00+07:00",
+    "areas_completed":  [
+                            "Librarian access",
+                            "Student signup",
+                            "Session behavior",
+                            "Role-aware app shell"
+                        ],
+    "areas_remaining":  [
+                            "Demo seed/setup"
+                        ],
+    "decisions":  {
+                      "Librarian access":  [
+                                               {
+                                                   "question":  "How should librarian accounts exist in v1, since there is no admin role?",
+                                                   "answer":  "Seeded librarian account",
+                                                   "options_presented":  [
+                                                                             "Seeded librarian account",
+                                                                             "Manual database/setup script",
+                                                                             "Open librarian registration",
+                                                                             "Other"
+                                                                         ]
+                                               },
+                                               {
+                                                   "question":  "For seeded librarian access, what should the demo credentials look like?",
+                                                   "answer":  "Simple fixed demo login",
+                                                   "options_presented":  [
+                                                                             "Simple fixed demo login",
+                                                                             "Generated password printed at setup",
+                                                                             "User-defined via env vars",
+                                                                             "Other"
+                                                                         ]
+                                               },
+                                               {
+                                                   "question":  "Should the app visibly show the demo librarian credentials on the login screen?",
+                                                   "answer":  "Show demo hints",
+                                                   "options_presented":  [
+                                                                             "Show demo hints",
+                                                                             "Keep credentials in README only",
+                                                                             "Add quick-fill buttons",
+                                                                             "Other"
+                                                                         ]
+                                               },
+                                               {
+                                                   "question":  "What should happen if a user tries to register as a librarian?",
+                                                   "answer":  "No librarian registration",
+                                                   "options_presented":  [
+                                                                             "No librarian registration",
+                                                                             "Show disabled librarian option",
+                                                                             "Allow librarian registration with a secret code",
+                                                                             "Other"
+                                                                         ]
+                                               }
+                                           ],
+                      "Student signup":  [
+                                             {
+                                                 "options_presented":  [
+                                                                           "Name, student/member ID, email, password",
+                                                                           "Name, email, password only",
+                                                                           "Email and password only",
+                                                                           "Other"
+                                                                       ],
+                                                 "question":  "What student information should registration require?",
+                                                 "answer":  "Name, student/member ID, email, password"
+                                             },
+                                             {
+                                                 "options_presented":  [
+                                                                           "Student enters it manually",
+                                                                           "System auto-generates it",
+                                                                           "Optional field for now",
+                                                                           "Other"
+                                                                       ],
+                                                 "question":  "How should the student/member ID be handled during registration?",
+                                                 "answer":  "Student enters it manually"
+                                             },
+                                             {
+                                                 "options_presented":  [
+                                                                           "Required and unique, light format check",
+                                                                           "Required and unique only",
+                                                                           "Strict university-style format",
+                                                                           "Other"
+                                                                       ],
+                                                 "question":  "What validation should the student/member ID have in v1?",
+                                                 "answer":  "Required and unique, light format check"
+                                             },
+                                             {
+                                                 "options_presented":  [
+                                                                           "Register and log in automatically",
+                                                                           "Register then return to login",
+                                                                           "Register then show confirmation page",
+                                                                           "Other"
+                                                                       ],
+                                                 "question":  "After successful student registration, what should happen?",
+                                                 "answer":  "Register and log in automatically"
+                                             }
+                                         ],
+                      "Session behavior":  [
+                                               {
+                                                   "options_presented":  [
+                                                                             "HTTP-only cookie session",
+                                                                             "JWT in localStorage",
+                                                                             "In-memory only",
+                                                                             "Other"
+                                                                         ],
+                                                   "question":  "How should sessions be stored between the React frontend and Express API?",
+                                                   "answer":  "HTTP-only cookie session"
+                                               },
+                                               {
+                                                   "options_presented":  [
+                                                                             "Until browser/session cookie expires",
+                                                                             "Fixed 24-hour expiry",
+                                                                             "Very short demo expiry",
+                                                                             "Other"
+                                                                         ],
+                                                   "question":  "How long should a login session last in v1?",
+                                                   "answer":  "Until browser/session cookie expires"
+                                               },
+                                               {
+                                                   "options_presented":  [
+                                                                             "Redirect to login with a clear message",
+                                                                             "Show a 401-style page",
+                                                                             "Hide protected routes entirely",
+                                                                             "Other"
+                                                                         ],
+                                                   "question":  "When a logged-out user tries to access a protected page, what should happen?",
+                                                   "answer":  "Redirect to login with a clear message"
+                                               },
+                                               {
+                                                   "options_presented":  [
+                                                                             "Clear session and redirect to login",
+                                                                             "Clear session and stay on current page",
+                                                                             "Clear session and go to a public home page",
+                                                                             "Other"
+                                                                         ],
+                                                   "question":  "For logout, what should the app do?",
+                                                   "answer":  "Clear session and redirect to login"
+                                               }
+                                           ],
+                      "Role-aware app shell":  [
+                                                   {
+                                                       "options_presented":  [
+                                                                                 "Yes, role-specific nav only",
+                                                                                 "Shared nav with hidden actions",
+                                                                                 "Minimal nav plus role badge",
+                                                                                 "Other"
+                                                                             ],
+                                                       "question":  "Should role-aware navigation be shown after login?",
+                                                       "answer":  "Yes, role-specific nav only"
+                                                   },
+                                                   {
+                                                       "options_presented":  [
+                                                                                 "Student dashboard/home",
+                                                                                 "Catalog page",
+                                                                                 "Last visited page",
+                                                                                 "Other"
+                                                                             ],
+                                                       "question":  "When a student logs in, where should they land?",
+                                                       "answer":  "Student dashboard/home"
+                                                   },
+                                                   {
+                                                       "options_presented":  [
+                                                                                 "Quick actions plus status summary",
+                                                                                 "Mostly navigation",
+                                                                                 "A fuller personalized dashboard",
+                                                                                 "Other"
+                                                                             ],
+                                                       "question":  "What should the student dashboard emphasize in v1?",
+                                                       "answer":  "Quick actions plus status summary"
+                                                   },
+                                                   {
+                                                       "options_presented":  [
+                                                                                 "Yes, a librarian dashboard",
+                                                                                 "No, same shell with role-specific links",
+                                                                                 "Librarians go straight to login-home only",
+                                                                                 "Other"
+                                                                             ],
+                                                       "question":  "Should librarians land on a different home surface than students?",
+                                                       "answer":  "Yes, a librarian dashboard"
+                                                   },
+                                                   {
+                                                       "options_presented":  [
+                                                                                 "Staff actions and demo readiness",
+                                                                                 "Mostly status and account info",
+                                                                                 "A fuller operational dashboard",
+                                                                                 "Other"
+                                                                             ],
+                                                       "question":  "What should the librarian dashboard emphasize in v1?",
+                                                       "answer":  "Staff actions and demo readiness"
+                                                   }
+                                               ]
+                  },
+    "deferred_ideas":  [
+
+                       ],
+    "canonical_refs":  [
+                           ".planning/ROADMAP.md",
+                           ".planning/REQUIREMENTS.md",
+                           ".planning/PROJECT.md"
+                       ]
+}
