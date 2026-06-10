@@ -1,6 +1,12 @@
-export default function AppShell({ user, onLogout, children }) {
-  const studentLinks = ["Dashboard", "Catalog", "My loans"];
-  const librarianLinks = ["Dashboard", "Books", "Members", "Borrow requests"];
+export default function AppShell({ user, currentPage, onNavigate, onLogout, children }) {
+  const studentLinks = [
+    { label: "Dashboard", page: "Dashboard" },
+    { label: "Catalog", page: "Catalog" }
+  ];
+  const librarianLinks = [
+    { label: "Dashboard", page: "Dashboard" },
+    { label: "Books", page: "Books" }
+  ];
   const links = user.role === "librarian" ? librarianLinks : studentLinks;
 
   return (
@@ -17,9 +23,15 @@ export default function AppShell({ user, onLogout, children }) {
       <div className="workspace">
         <nav aria-label={`${user.role} navigation`}>
           {links.map((link) => (
-            <a href="#dashboard" key={link}>
-              {link}
-            </a>
+            <button
+              key={link.page}
+              type="button"
+              className={currentPage === link.page ? "active" : undefined}
+              aria-current={currentPage === link.page ? "page" : undefined}
+              onClick={() => onNavigate(link.page)}
+            >
+              {link.label}
+            </button>
           ))}
         </nav>
         <main>{children}</main>
