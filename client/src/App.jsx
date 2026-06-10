@@ -7,6 +7,8 @@ import BooksPage from "./components/BooksPage";
 import MembersPage from "./components/MembersPage";
 import MyRequestsPage from "./components/MyRequestsPage";
 import BorrowRequestsPage from "./components/BorrowRequestsPage";
+import MyLoansPage from "./components/MyLoansPage";
+import LoansPage from "./components/LoansPage";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 
@@ -96,12 +98,16 @@ export default function App() {
           <CatalogPage />
         ) : currentPage === "My Requests" && currentUser.role === "student" ? (
           <MyRequestsPage />
+        ) : currentPage === "My Loans" && currentUser.role === "student" ? (
+          <MyLoansPage />
         ) : currentPage === "Books" && currentUser.role === "librarian" ? (
           <BooksPage />
         ) : currentPage === "Members" && currentUser.role === "librarian" ? (
           <MembersPage />
         ) : currentPage === "Borrow Requests" && currentUser.role === "librarian" ? (
           <BorrowRequestsPage />
+        ) : currentPage === "Loans" && currentUser.role === "librarian" ? (
+          <LoansPage />
         ) : (
           <Dashboard user={currentUser} />
         )}

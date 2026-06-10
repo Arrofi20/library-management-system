@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth");
 const booksRoutes = require("./routes/books");
 const membersRoutes = require("./routes/members");
 const borrowRequestsRoutes = require("./routes/borrowRequests");
+const loansRoutes = require("./routes/loans");
 
 function createApp() {
   initializeSchema();
@@ -35,6 +36,7 @@ function createApp() {
   app.use("/api/books", booksRoutes);
   app.use("/api/members", membersRoutes);
   app.use("/api/borrow-requests", borrowRequestsRoutes);
+  app.use("/api/loans", loansRoutes);
 
   return app;
 }
