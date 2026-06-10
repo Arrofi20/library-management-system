@@ -6,7 +6,7 @@ function AvailabilityBadge({ available }) {
   );
 }
 
-export default function BookTable({ books, onEdit, onDelete, showActions = false, blockedMessage }) {
+export default function BookTable({ books, onEdit, onDelete, onRequest, showActions = false, blockedMessage }) {
   if (books.length === 0) {
     return (
       <div className="book-panel">
@@ -15,6 +15,8 @@ export default function BookTable({ books, onEdit, onDelete, showActions = false
       </div>
     );
   }
+
+  const hasActions = showActions || typeof onRequest === "function";
 
   return (
     <div className="table-wrapper">
@@ -26,7 +28,7 @@ export default function BookTable({ books, onEdit, onDelete, showActions = false
             <th>Category</th>
             <th>ISBN</th>
             <th>Availability</th>
-            {showActions ? <th>Actions</th> : null}
+            {hasActions ? <th>Actions</th> : null}
           </tr>
         </thead>
         <tbody>
@@ -39,19 +41,39 @@ export default function BookTable({ books, onEdit, onDelete, showActions = false
               <td>
                 <AvailabilityBadge available={book.available} />
               </td>
-              {showActions ? (
+              {hasActions ? (
                 <td>
-                  <button type="button" onClick={() => onEdit(book)}>
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    disabled={!book.available}
-                    onClick={() => onDelete(book)}
-                  >
-                    Delete
-                  </button>
-                  {!book.available ? <p className="small-hint">This book cannot be deleted because it has an active loan.</p> : null}
+                  {showActions ? (
+                    <>
+                      <button type="button" onClick={() => onEdit(book)}>
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        disabled={!book.available}
+                        onClick={() => onDelete(book)}
+                      >
+                        Delete
+                      </button>
+                      {!book.available ? (
+                        <p className="small-hint">This book cannot be deleted because it has an active loan.</p>
+                      ) : null}
+                    </>
+                  ) : null}
+                  {typeof onRequest === "function" ? (
+                    <>
+                      <button
+                        type="button"
+                        disabled={!book.available}
+                        onClick={() => onRequest(book.id)}
+                      >
+                        Request
+                      </button>
+                      {!book.available ? (
+                        <p className="small-hint">Only available books can be requested.</p>
+                      ) : null}
+                    </>
+                  ) : null}
                 </td>
               ) : null}
             </tr>

@@ -5,6 +5,8 @@ const { initializeSchema, openDatabase } = require("./db");
 const { attachCurrentUser } = require("./auth/guards");
 const authRoutes = require("./routes/auth");
 const booksRoutes = require("./routes/books");
+const membersRoutes = require("./routes/members");
+const borrowRequestsRoutes = require("./routes/borrowRequests");
 
 function createApp() {
   initializeSchema();
@@ -31,6 +33,8 @@ function createApp() {
 
   app.use("/api/auth", authRoutes);
   app.use("/api/books", booksRoutes);
+  app.use("/api/members", membersRoutes);
+  app.use("/api/borrow-requests", borrowRequestsRoutes);
 
   return app;
 }
