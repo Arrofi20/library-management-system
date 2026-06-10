@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { getCurrentUser, getHealth, login, logout, registerStudent } from "./api/auth";
 import AppShell from "./components/AppShell";
 import Dashboard from "./components/Dashboard";
+import CatalogPage from "./components/CatalogPage";
+import BooksPage from "./components/BooksPage";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentPage, setCurrentPage] = useState("Dashboard");
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [health, setHealth] = useState(null);
@@ -48,6 +51,7 @@ export default function App() {
     try {
       const result = await login(credentials);
       setCurrentUser(result.user);
+      setCurrentPage("Dashboard");
       setMessage("");
     } catch (error) {
       setLoginError(error.message);
@@ -59,6 +63,7 @@ export default function App() {
     try {
       const result = await registerStudent(details);
       setCurrentUser(result.user);
+      setCurrentPage("Dashboard");
       setMessage("");
     } catch (error) {
       setRegisterError(error.message);
@@ -68,6 +73,7 @@ export default function App() {
   async function handleLogout() {
     await logout();
     setCurrentUser(null);
+    setCurrentPage("Dashboard");
     setMessage("You have been logged out.");
   }
 
@@ -77,8 +83,19 @@ export default function App() {
 
   if (currentUser) {
     return (
-      <AppShell user={currentUser} onLogout={handleLogout}>
-        <Dashboard user={currentUser} />
+      <AppShell
+        user={currentUser}
+        currentPage={currentPage}
+        onNavigate={setCurrentPage}
+        onLogout={handleLogout}
+      >
+        {currentPage === "Catalog" && currentUser.role === "student" ? (
+          <CatalogPage />
+        ) : currentPage === "Books" && currentUser.role === "librarian" ? (
+          <BooksPage />
+        ) : (
+          <Dashboard user={currentUser} />
+        )}
       </AppShell>
     );
   }

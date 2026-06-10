@@ -70,7 +70,7 @@ describe("auth flow", () => {
     const librarianForm = screen.getByText("Librarian demo").closest("form");
     await userEvent.click(await within(librarianForm).findByRole("button", { name: /log in/i }));
     expect(await screen.findByText("Librarian workspace")).toBeInTheDocument();
-    expect(screen.getByText("Members")).toBeInTheDocument();
+    expect(screen.getByText("Books")).toBeInTheDocument();
     expect(screen.queryByText("My loans")).not.toBeInTheDocument();
   });
 

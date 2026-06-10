@@ -37,6 +37,6 @@ describe("application skeleton", () => {
       { role: "librarian", count: 1 },
       { role: "student", count: 1 }
     ]);
-    expect(books.count).toBe(3);
+    expect(books.count).toBe(10);
   });
 });
