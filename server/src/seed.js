@@ -97,8 +97,8 @@ function seedDemoData() {
   resetDemoData(db);
 
   const insertUser = db.prepare(
-    `INSERT INTO users (name, member_id, email, password_hash, role)
-     VALUES (?, ?, ?, ?, ?)`
+    `INSERT INTO users (name, member_id, email, password_hash, role, member_active)
+     VALUES (?, ?, ?, ?, ?, ?)`
   );
   const insertBook = db.prepare(
     `INSERT INTO books (title, author, category, isbn, available)
@@ -106,7 +106,7 @@ function seedDemoData() {
   );
 
   for (const user of demoUsers) {
-    insertUser.run(user.name, user.memberId, user.email, hashPassword(user.password), user.role);
+    insertUser.run(user.name, user.memberId, user.email, hashPassword(user.password), user.role, 1);
   }
 
   for (const book of sampleBooks) {

@@ -1,11 +1,14 @@
 export default function AppShell({ user, currentPage, onNavigate, onLogout, children }) {
   const studentLinks = [
     { label: "Dashboard", page: "Dashboard" },
-    { label: "Catalog", page: "Catalog" }
+    { label: "Catalog", page: "Catalog" },
+    { label: "My Requests", page: "My Requests" }
   ];
   const librarianLinks = [
     { label: "Dashboard", page: "Dashboard" },
-    { label: "Books", page: "Books" }
+    { label: "Books", page: "Books" },
+    { label: "Members", page: "Members" },
+    { label: "Borrow Requests", page: "Borrow Requests" }
   ];
   const links = user.role === "librarian" ? librarianLinks : studentLinks;
 

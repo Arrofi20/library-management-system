@@ -4,6 +4,9 @@ import AppShell from "./components/AppShell";
 import Dashboard from "./components/Dashboard";
 import CatalogPage from "./components/CatalogPage";
 import BooksPage from "./components/BooksPage";
+import MembersPage from "./components/MembersPage";
+import MyRequestsPage from "./components/MyRequestsPage";
+import BorrowRequestsPage from "./components/BorrowRequestsPage";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 
@@ -91,8 +94,14 @@ export default function App() {
       >
         {currentPage === "Catalog" && currentUser.role === "student" ? (
           <CatalogPage />
+        ) : currentPage === "My Requests" && currentUser.role === "student" ? (
+          <MyRequestsPage />
         ) : currentPage === "Books" && currentUser.role === "librarian" ? (
           <BooksPage />
+        ) : currentPage === "Members" && currentUser.role === "librarian" ? (
+          <MembersPage />
+        ) : currentPage === "Borrow Requests" && currentUser.role === "librarian" ? (
+          <BorrowRequestsPage />
         ) : (
           <Dashboard user={currentUser} />
         )}

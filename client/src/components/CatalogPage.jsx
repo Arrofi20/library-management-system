@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getBooks } from "../api/books";
+import { requestBorrow } from "../api/borrowRequests";
 import BookToolbar from "./BookToolbar";
 import BookTable from "./BookTable";
 
@@ -15,6 +16,7 @@ export default function CatalogPage() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -49,6 +51,18 @@ export default function CatalogPage() {
     setFilters((current) => ({ ...current, [key]: value }));
   }
 
+  function handleRequest(bookId) {
+    setError("");
+    setMessage("");
+    requestBorrow(bookId)
+      .then(() => {
+        setMessage("Borrow request submitted. Check My Requests for status updates.");
+      })
+      .catch((error) => {
+        setError(error.message || "Could not submit borrow request.");
+      });
+  }
+
   return (
     <section>
       <h1 className="page-title">Catalog</h1>
@@ -67,8 +81,9 @@ export default function CatalogPage() {
         <p className="alert">{error}</p>
       ) : (
         <>
+          {message ? <p className="alert" style={{ background: "#e1f3fb", borderColor: "#b6e0f4", color: "#176b87" }}>{message}</p> : null}
           <p>{books.length} books found</p>
-          <BookTable books={books} />
+          <BookTable books={books} onRequest={handleRequest} />
         </>
       )}
     </section>

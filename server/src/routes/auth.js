@@ -54,8 +54,8 @@ router.post("/register", (req, res) => {
   const passwordHash = hashPassword(password);
   const result = db
     .prepare(
-      `INSERT INTO users (name, member_id, email, password_hash, role)
-       VALUES (?, ?, ?, ?, 'student')`
+      `INSERT INTO users (name, member_id, email, password_hash, role, member_active)
+       VALUES (?, ?, ?, ?, 'student', 1)`
     )
     .run(name, memberId, email, passwordHash);
   const user = db.prepare("SELECT * FROM users WHERE id = ?").get(result.lastInsertRowid);
