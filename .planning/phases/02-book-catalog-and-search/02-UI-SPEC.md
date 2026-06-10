@@ -1,7 +1,7 @@
 ---
 phase: 2
 slug: book-catalog-and-search
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-06-10
@@ -118,8 +118,8 @@ Additional required copy:
 | Edit form heading | Edit book |
 | Save create button | Save book |
 | Save edit button | Update book |
-| Cancel edit button | Cancel |
-| Delete button | Delete |
+| Cancel edit button | Discard book edits |
+| Delete button | Delete book |
 | Blocked delete message | This book cannot be deleted because it has an active loan. |
 | Protected ISBN hint | ISBN cannot be changed while this book is unavailable or on loan. |
 
@@ -136,6 +136,8 @@ Additional required copy:
 
 ## Phase 2 Screen Contracts
 
+Primary focal point is the search/filter toolbar on Catalog and the add/edit form on Books.
+
 ### Student Catalog
 
 - Use a compact table/list, not a card grid or bookstore-style visual layout.
@@ -150,7 +152,7 @@ Additional required copy:
 
 - Use one Books page with toolbar, table, and an add/edit form. Inline form is preferred unless existing implementation constraints make a modal simpler.
 - Show columns in this order on desktop: Title, Author, Category, ISBN, Availability, Actions.
-- Actions per row: Edit and Delete. Delete is disabled or replaced with blocked copy when an active-loan rule prevents deletion.
+- Actions per row: Edit book and Delete book. Accessible labels should include the book title when practical, for example `Edit Clean Code` and `Delete Clean Code`.
 - Required form fields: Title, Author, Category, ISBN, Availability.
 - Availability control is a binary select or toggle with labels Available and Unavailable.
 - During edit, descriptive fields remain editable for unavailable/on-loan books; ISBN is protected when the book is unavailable or on loan.
@@ -203,11 +205,11 @@ Additional required copy:
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved by gsd-ui-checker on 2026-06-10
